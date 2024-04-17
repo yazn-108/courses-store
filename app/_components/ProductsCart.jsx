@@ -5,7 +5,7 @@ const ProductsCart = ({ products, openState }) => {
     <div className='h-[300px] w-[250px]
         bg-gray-100 z-10 rounded-md border shadow-sm
         absolute mx-10 right-10 top-12 p-5 overflow-hidden'>
-      <div className="mt-1 space-y-6 h-[156px] overflow-y-scroll no-scrollbar">
+      <div className="mt-1 space-y-6 h-[156px] overflow-y-scroll">
         <ul className="space-y-4">
           {products?.map((item) => (
             <li key={item?.productId} className="flex items-center gap-4">
