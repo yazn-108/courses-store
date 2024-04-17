@@ -7,7 +7,7 @@ import CartApis from '@/app/_fetchData/CartApis'
 import { useDispatch } from 'react-redux'
 import { CartProductsCount } from '@/app/_ReduxToolKit/CartProductsCountSlice'
 import SuccessAlert from './SuccessAlert'
-const productInfo = ({ product }) => {
+const ProductInfo = ({ product }) => {
 	const [AlertState, setAlertState] = useState(null)
 	const dispatch = useDispatch()
 	const { user } = useUser()
@@ -49,4 +49,4 @@ const productInfo = ({ product }) => {
 		</div>
 	)
 }
-export default productInfo
+export default ProductInfo
