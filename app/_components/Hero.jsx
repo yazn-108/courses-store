@@ -4,7 +4,7 @@ import React from 'react'
 const Hero = () => {
   const ScrollDown = () => {
     scrollTo({
-      top: window !== undefined && window.innerHeight,
+      top: typeof window !== "undefined" && window.innerHeight,
       behavior: "smooth"
     })
   }

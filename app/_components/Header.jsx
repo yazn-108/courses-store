@@ -13,7 +13,7 @@ const Header = () => {
   const CartProducts = useSelector(state => state.CartProductsCountSlice.CartProducts)
   const [CartMenuState, setCartMenuState] = useState(false)
   const [MenuState, setMenuState] = useState(false)
-  if (window !== undefined) {
+  if (typeof window !== "undefined") {
     window.addEventListener('resize', () => window.innerWidth > 768 && setMenuState(false))
   }
   const Menu = useRef()
