@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import connect from "@/lib/db";
 import Product from "@/lib/modals/CartProduct";
-// import { CheckUserProduct } from "@/app/_fetchData/Apis";
+import { CheckUserProduct } from "@/app/_fetchData/Apis";
 export const GET = async (req) => {
   const adminId = req.headers.get("AdminToken")
   try {
