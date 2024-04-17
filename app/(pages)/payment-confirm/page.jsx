@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-const page = () => {
+const Page = () => {
   return (
     <div className='flex flex-col items-center justify-center px-5 mt-4'>
       <Image src='/verified.gif'
@@ -20,4 +20,4 @@ const page = () => {
     </div>
   )
 }
-export default page
+export default Page

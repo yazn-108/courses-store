@@ -5,7 +5,7 @@ import CartApis from '@/app/_fetchData/CartApis'
 import { useUser } from '@clerk/nextjs'
 import { CartProductsCount } from '@/app/_ReduxToolKit/CartProductsCountSlice'
 import Link from 'next/link'
-const page = () => {
+const Page = () => {
 	const CartProducts = useSelector(state => state.CartProductsCountSlice.CartProducts)
 	const GetTotal = () => {
 		let total = 0
@@ -103,4 +103,4 @@ const page = () => {
 		</section>
 	)
 }
-export default page
+export default Page

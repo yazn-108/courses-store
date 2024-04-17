@@ -4,7 +4,7 @@ import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import CheckoutForm from './_components/CheckoutForm';
 import { useSearchParams } from 'next/navigation';
-const page = () => {
+const Page = () => {
 	const SearchParams = useSearchParams()
 	const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 	const options = {
@@ -18,4 +18,4 @@ const page = () => {
 		</Elements>
 	)
 }
-export default page
+export default Page

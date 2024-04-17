@@ -2,7 +2,7 @@ import { SignUp } from '@clerk/nextjs'
 import { ArrowLeftFromLine } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
-const page = () => {
+const Page = () => {
 	return (
 		<section className="bg-white" >
 			<div className="lg:grid lg:min-h-screen lg:grid-cols-12">
@@ -62,4 +62,4 @@ const page = () => {
 		</section>
 	)
 }
-export default page
+export default Page

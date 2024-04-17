@@ -4,7 +4,7 @@ import React from 'react'
 import ProductBanner from './_components/ProductBanner'
 import ProductInfo from './_components/ProductInfo'
 import ProductsList from '@/app/_components/ProductsList'
-const page = async ({ params }) => {
+const Page = async ({ params }) => {
   const getProductById = await ProductApi.ProductById(params?.productId)
   const getProductByCategory = await ProductApi.ProductByCategory(getProductById?.data?.category)
   return (
@@ -21,4 +21,4 @@ const page = async ({ params }) => {
     </div>
   )
 }
-export default page
+export default Page

@@ -1,7 +1,7 @@
 import React from 'react'
 import Hero from './_components/Hero'
 import Products from './_components/Products'
-const page = () => {
+const Page = () => {
   return (
     <div>
       <Hero />
@@ -9,4 +9,4 @@ const page = () => {
     </div>
   )
 }
-export default page
+export default Page

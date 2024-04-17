@@ -1,7 +1,7 @@
 import React from 'react'
 import ProductApi from '@/app/_fetchData/Apis'
 import ProductsList from '@/app/_components/ProductsList'
-const page = async () => {
+const Page = async () => {
   const productsData = await ProductApi?.AllProducts()
   return (
     <div className='px-10 md:px-10 mt-4'>
@@ -9,4 +9,4 @@ const page = async () => {
     </div>
   )
 }
-export default page
+export default Page
