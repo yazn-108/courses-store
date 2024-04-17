@@ -17,14 +17,14 @@ const Header = () => {
   const CartMenu = useRef()
   const { user } = useUser()
   const dispatch = useDispatch()
-  // if (typeof window !== "undefined" & typeof document !== "undefined") {
-  //   document.addEventListener('resize', () => window.innerWidth > 768 && setMenuState(false))
-  //   document.addEventListener('click', (e) => CloseAction(e))
-  // }
-  // const CloseAction = (e) => {
-  //   CartMenu?.current && !CartMenu?.current.contains(e.target) && CartMenuState && setCartMenuState(false)
-  //   Menu?.current && !Menu?.current.contains(e.target) && MenuState && setMenuState(false)
-  // }
+  if (typeof window !== "undefined" & typeof document !== "undefined") {
+    document.addEventListener('resize', () => window?.innerWidth > 768 && setMenuState(false))
+    document.addEventListener('click', (e) => CloseAction(e))
+  }
+  const CloseAction = (e) => {
+    CartMenu?.current && !CartMenu?.current.contains(e.target) && CartMenuState && setCartMenuState(false)
+    Menu?.current && !Menu?.current.contains(e.target) && MenuState && setMenuState(false)
+  }
   useEffect(() => {
     user?.id && dispatch(CartProductsCount(user?.id))
   }, [dispatch, user])
