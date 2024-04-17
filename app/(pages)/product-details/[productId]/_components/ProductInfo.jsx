@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { useUser } from '@clerk/nextjs'
 import { AlertOctagon, BadgeCheck, ShoppingCart } from 'lucide-react'
 import { useRouter } from 'next/navigation'
-import CartApis from '@/app/_fetchData/CartApis'
+import { AddProductToUserCart } from '@/app/_fetchData/CartApis'
 import { useDispatch } from 'react-redux'
 import { CartProductsCount } from '@/app/_ReduxToolKit/CartProductsCountSlice'
 import SuccessAlert from './SuccessAlert'
@@ -17,7 +17,7 @@ const ProductInfo = ({ product }) => {
 			router.push("/sign-in")
 		} else {
 			const userId = await user?.id
-			CartApis.AddProductToUserCart(product, userId).then((e) => {
+			AddProductToUserCart(product, userId).then((e) => {
 				dispatch(CartProductsCount(userId))
 				setAlertState({
 					message: e.data.message,

@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 const ProductsCart = ({ products, openState }) => {
@@ -9,9 +10,11 @@ const ProductsCart = ({ products, openState }) => {
         <ul className="space-y-4">
           {products?.map((item) => (
             <li key={item?.productId} className="flex items-center gap-4">
-              <img
+              <Image
+                width={400}
+                height={400}
+                alt="empty"
                 src={item?.bannerUrl}
-                alt=""
                 className="object-cover w-16 h-16 rounded"
               />
               <div>

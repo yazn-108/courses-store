@@ -13,19 +13,19 @@ const Header = () => {
   const CartProducts = useSelector(state => state.CartProductsCountSlice.CartProducts)
   const [CartMenuState, setCartMenuState] = useState(false)
   const [MenuState, setMenuState] = useState(false)
-  window !== undefined && window.addEventListener('resize', () => window.innerWidth > 768 && setMenuState(false))
+  // window !== undefined && window.addEventListener('resize', () => window.innerWidth > 768 && setMenuState(false))
   const Menu = useRef()
   const CartMenu = useRef()
-  const CloseAction = (e) => {
-    CartMenu.current && !CartMenu.current.contains(e.target) && CartMenuState && setCartMenuState(false)
-    Menu.current && !Menu.current.contains(e.target) && MenuState && setMenuState(false)
-  }
-  document.addEventListener('click', (e) => CloseAction(e))
+  // const CloseAction = (e) => {
+  //   CartMenu.current && !CartMenu.current.contains(e.target) && CartMenuState && setCartMenuState(false)
+  //   Menu.current && !Menu.current.contains(e.target) && MenuState && setMenuState(false)
+  // }
+  // document.addEventListener('click', (e) => CloseAction(e))
   const { user } = useUser()
   const dispatch = useDispatch()
   useEffect(() => {
     user?.id && dispatch(CartProductsCount(user?.id))
-  }, [user])
+  }, [dispatch, user])
   const Path = usePathname()
   return Path !== "/sign-in" && Path !== "/sign-up" && (
     <header className="bg-white">

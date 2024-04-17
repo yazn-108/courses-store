@@ -1,10 +1,11 @@
 "use client"
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import CartApis from '@/app/_fetchData/CartApis'
+import { DeleteCartItem } from '@/app/_fetchData/CartApis'
 import { useUser } from '@clerk/nextjs'
 import { CartProductsCount } from '@/app/_ReduxToolKit/CartProductsCountSlice'
 import Link from 'next/link'
+import Image from 'next/image'
 const Page = () => {
 	const CartProducts = useSelector(state => state.CartProductsCountSlice.CartProducts)
 	const GetTotal = () => {
@@ -28,9 +29,11 @@ const Page = () => {
 							{
 								CartProducts.map(item => (
 									<li className="flex items-center gap-4" key={item.productId}>
-										<img
+										<Image
+											width={100}
+											height={100}
+											alt="empty"
 											src={item?.bannerUrl}
-											alt=""
 											className="size-16 rounded object-cover"
 										/>
 										<div>
@@ -45,7 +48,7 @@ const Page = () => {
 										<div className="flex flex-1 items-center justify-end gap-2">
 											<span>{item?.price} $</span>
 											<button className="text-gray-600 transition hover:text-red-600" onClick={() => {
-												CartApis.DeleteCartItem(item.productId, user?.id).then(() => {
+												DeleteCartItem(item.productId, user?.id).then(() => {
 													dispatch(CartProductsCount(user?.id))
 												})
 											}}>

@@ -1,12 +1,16 @@
 "use client"
-import { useUser } from '@clerk/nextjs'
+import Image from 'next/image'
 import React from 'react'
 const Footer = () => {
   return (
     <footer className="mt-32 bg-gray-100">
       <div className="max-w-5xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
         <div className="flex justify-center text-teal-600">
-          <img src='/logo.svg' alt='logo' width={120} height={70} />
+          <Image
+            width={120}
+            height={70}
+            src='/logo.svg'
+            alt='logo' />
         </div>
         <p className="max-w-md mx-auto mt-6 leading-relaxed text-center text-gray-500">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt consequuntur amet culpa cum

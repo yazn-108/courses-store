@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import connect from "@/lib/db";
 import Product from "@/lib/modals/CartProduct";
-import Apis from "@/app/_fetchData/Apis";
+import { CheckUserProduct } from "@/app/_fetchData/Apis";
 export const GET = async (req) => {
   const adminId = req.headers.get("AdminToken")
   try {
@@ -33,7 +33,7 @@ export const POST = async (req) => {
         user: userId
       });
       let productState;
-      await Apis.CheckUserProduct({ productId, userId }).then((res) => {
+      await CheckUserProduct({ productId, userId }).then((res) => {
         !res.data && newProduct.save();
         if (!res.data) {
           productState = true

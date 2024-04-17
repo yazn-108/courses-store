@@ -23,7 +23,7 @@ const DeleteAllCartItems = (userToken) => axiosClient.delete("/Cart/deleteAll", 
         AdminToken: `${process.env.NEXT_PUBLIC_ADMIN_ID}`
     }
 })
-export default {
+export {
     AddProductToUserCart,
     GetUserCartItems,
     DeleteCartItem,

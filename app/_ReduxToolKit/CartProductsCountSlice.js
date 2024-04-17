@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import CartApis from '../_fetchData/CartApis'
+import { GetUserCartItems } from '../_fetchData/CartApis'
 export const CartProductsCount = createAsyncThunk('users/fetchByIdStatus', async (userToken, thunkAPI) => {
-  const response = await CartApis.GetUserCartItems(userToken)
+  const response = await GetUserCartItems(userToken)
   return response.data
 },
 )

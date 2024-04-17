@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react'
 import { PaymentElement, useElements, useStripe } from '@stripe/react-stripe-js';
-import CartApis from '@/app/_fetchData/CartApis';
+import { DeleteAllCartItems } from '@/app/_fetchData/CartApis';
 import { useUser } from '@clerk/nextjs';
 const CheckoutForm = ({ amount }) => {
 	const stripe = useStripe();
@@ -32,7 +32,7 @@ const CheckoutForm = ({ amount }) => {
 		})
 		const clientSecret = await res.json()
 		if (clientSecret) {
-			CartApis.DeleteAllCartItems(user?.id)
+			DeleteAllCartItems(user?.id)
 		}
 		const result = await stripe.confirmPayment({
 			clientSecret,
