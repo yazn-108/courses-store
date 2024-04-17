@@ -32,31 +32,30 @@ export const POST = async (req) => {
         instantDelivery,
         user: userId
       });
-      newProduct.save();
-      // let productState;
-      // await CheckUserProduct({ productId, userId }).then((res) => {
-      //   !res.data && newProduct.save();
-      //   if (!res.data) {
-      //     productState = true
-      //   } else {
-      //     productState = false
-      //   }
-      // })
-      // if (productState) {
-      //   return new NextResponse(
-      //     JSON.stringify({ message: "Product added", Product: newProduct }),
-      //     { status: 201 }
-      //   );
-      // } else {
-      //   return new NextResponse(
-      //     JSON.stringify({ message: "product already exists", Product: false }),
-      //     { status: 201 }
-      //   );
-      // }
-      // return new NextResponse(
-      //   JSON.stringify({ message: "Product added", Product: newProduct }),
-      //   { status: 201 }
-      // );
+      let productState;
+      await CheckUserProduct({ productId, userId }).then((res) => {
+        !res.data && newProduct.save();
+        if (!res.data) {
+          productState = true
+        } else {
+          productState = false
+        }
+      })
+      if (productState) {
+        return new NextResponse(
+          JSON.stringify({ message: "Product added", Product: newProduct }),
+          { status: 201 }
+        );
+      } else {
+        return new NextResponse(
+          JSON.stringify({ message: "product already exists", Product: false }),
+          { status: 201 }
+        );
+      }
+      return new NextResponse(
+        JSON.stringify({ message: "Product added", Product: newProduct }),
+        { status: 201 }
+      );
     }
     return new NextResponse("you don't have access to api", { status: 403 })
   } catch (error) { }
