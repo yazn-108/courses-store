@@ -22,10 +22,9 @@ const Header = () => {
     Menu?.current && !Menu?.current.contains(e.target) && MenuState && setMenuState(false)
   }
   if (typeof window !== "undefined" & typeof document !== "undefined") {
-    document.addEventListener('resize', () => window?.innerWidth > 768 && setMenuState(false))
+    window.addEventListener('resize', () => window?.innerWidth > 768 && setMenuState(false))
     document.addEventListener('click', (e) => CloseAction(e))
   }
-
   useEffect(() => {
     user?.id && dispatch(CartProductsCount(user?.id))
   }, [dispatch, user])
