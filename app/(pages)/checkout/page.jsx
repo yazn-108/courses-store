@@ -4,9 +4,9 @@ import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import CheckoutForm from './_components/CheckoutForm';
 import { useSearchParams } from 'next/navigation';
-const Page = () => {
-	const SearchParams = useSearchParams()
-	const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
+const Page = async () => {
+	const SearchParams = await useSearchParams()
+	const stripePromise = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 	const options = {
 		mode: 'payment',
 		currency: "usd",
