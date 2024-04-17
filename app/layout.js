@@ -12,8 +12,8 @@ const MainFont = Lemonada({
 });
 export default function RootLayout({ children }) {
   return (
-    <ClerkProvider>
-      <Provider store={store}>
+    <Provider store={store}>
+      <ClerkProvider>
         <html lang="en">
           <head>
             <title>Courses store</title>
@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
             <Footer />
           </body>
         </html>
-      </Provider>
-    </ClerkProvider>
+      </ClerkProvider>
+    </Provider>
   );
 }

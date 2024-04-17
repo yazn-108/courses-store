@@ -4,7 +4,7 @@ import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import CheckoutForm from './_components/CheckoutForm';
 import { useSearchParams } from 'next/navigation';
-const Page = () => {
+function Form() {
 	const SearchParams = useSearchParams()
 	const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 	const options = {
@@ -13,10 +13,15 @@ const Page = () => {
 		amount: SearchParams.get('amount') * 100,
 	};
 	return (
+		<Elements stripe={stripePromise} options={options}>
+			<CheckoutForm amount={Number(SearchParams.get("amount"))} />
+		</Elements>
+	)
+}
+const Page = () => {
+	return (
 		<Suspense fallback={<div>Loading...</div>}>
-			<Elements stripe={stripePromise} options={options}>
-				<CheckoutForm amount={Number(SearchParams.get("amount"))} />
-			</Elements>
+			<Form />
 		</Suspense>
 	)
 }

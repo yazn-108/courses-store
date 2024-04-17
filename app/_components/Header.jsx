@@ -25,7 +25,7 @@ const Header = () => {
   const dispatch = useDispatch()
   useEffect(() => {
     user?.id && dispatch(CartProductsCount(user?.id))
-  }, [dispatch, user])
+  }, [user])
   const Path = usePathname()
   return Path !== "/sign-in" && Path !== "/sign-up" && (
     <header className="bg-white">
