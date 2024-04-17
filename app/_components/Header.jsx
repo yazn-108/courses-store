@@ -13,18 +13,18 @@ const Header = () => {
   const CartProducts = useSelector(state => state.CartProductsCountSlice.CartProducts)
   const [CartMenuState, setCartMenuState] = useState(false)
   const [MenuState, setMenuState] = useState(false)
-  if (typeof window !== "undefined") {
-    window.addEventListener('resize', () => window.innerWidth > 768 && setMenuState(false))
-  }
   const Menu = useRef()
   const CartMenu = useRef()
+  const { user } = useUser()
+  const dispatch = useDispatch()
+  if (typeof window !== "undefined" & typeof document !== "undefined") {
+    document.addEventListener('resize', () => window.innerWidth > 768 && setMenuState(false))
+    document.addEventListener('click', (e) => CloseAction(e))
+  }
   const CloseAction = (e) => {
     CartMenu?.current && !CartMenu?.current.contains(e.target) && CartMenuState && setCartMenuState(false)
     Menu?.current && !Menu?.current.contains(e.target) && MenuState && setMenuState(false)
   }
-  document.addEventListener('click', (e) => CloseAction(e))
-  const { user } = useUser()
-  const dispatch = useDispatch()
   useEffect(() => {
     user?.id && dispatch(CartProductsCount(user?.id))
   }, [dispatch, user])
