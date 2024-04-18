@@ -51,9 +51,6 @@ const Header = () => {
               <li>
                 <Link className="text-gray-500 transition hover:text-gray-500/75" href="/all-courses">All courses</Link>
               </li>
-              {/* <li>
-                <Link className="text-gray-500 transition hover:text-gray-500/75" href="#"> latest courses </Link>
-              </li> */}
               <li>
                 <Link className="text-gray-500 transition hover:text-gray-500/75" href="/about"> about </Link>
               </li>
@@ -83,7 +80,9 @@ const Header = () => {
                     {CartMenuState && <ProductsCart products={CartProducts} openState={setCartMenuState} />}
                     <span className='text-sm'>({CartProducts.length})</span>
                   </div>
-                  <UserButton afterSignOutUrl='/' />
+                  <div className='w-[32px] h-[32px] rounded-full'>
+                    {user ? <UserButton afterSignOutUrl='/' /> : <div className='w-[32px] h-[32px] bg-slate-300 rounded-full animate-pulse'></div>}
+                  </div>
                 </div>
               )
               }

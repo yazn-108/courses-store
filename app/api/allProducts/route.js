@@ -1,7 +1,7 @@
 import connect from "@/lib/db";
 import AllProducts from "@/lib/modals/AllProducts"
 import { NextResponse } from "next/server"
-export const GET = async (req) => {
+export const GET = async (req, res) => {
   const adminId = req.headers.get("authorization")?.split(" ")[1]
   try {
     if (adminId === process.env.NEXT_PUBLIC_ADMIN_ID) {

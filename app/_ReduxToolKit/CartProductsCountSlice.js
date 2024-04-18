@@ -3,8 +3,7 @@ import { GetUserCartItems } from '../_fetchData/CartApis'
 export const CartProductsCount = createAsyncThunk('users/fetchByIdStatus', async (userToken, thunkAPI) => {
   const response = await GetUserCartItems(userToken)
   return response.data
-},
-)
+})
 const CartProductsCountSlice = createSlice({
   name: 'users',
   initialState: {
