@@ -16,40 +16,29 @@ export const EmailTemplate = ({
 }) => (
   <Html>
     <Head />
-    <Preview>
-      The Ecommerce Platform For Yout Digital Products search now for your future
-    </Preview>
+    <Preview>Thank you for trying Courses store.</Preview>
     <Body style={main}>
       <Container style={container}>
         <Img
-          src='https://res.cloudinary.com/ddfzikgiz/image/upload/v1704687428/itelm_ryakt_f_50_dqyqh_e31f29dc71.png'
+          src='https://res.cloudinary.com/dripwnroz/image/upload/v1713435355/photo_6046227262073846788_c_taybw6.jpg'
           width="420"
-          height="300"
-          alt="Koala"
+          height="420"
+          alt="yazn_108 logo"
           style={logo}
         />
         <Text style={paragraph}>Hi {firstName},</Text>
         <Text style={paragraph}>
-          Thank you purchasing on Sleem Tech Ecommerce. Click on Below download button to download the all digital content
+          Thank you for trying Courses store. Click the visit button below to visit my website
         </Text>
         <Section style={btnContainer}>
-          <Button pX={12} pY={12}
-            style={{
-              padding: 5,
-              paddingLeft: 10,
-              paddingRight: 10,
-            }}
-            href="https://res.cloudinary.com/ddfzikgiz/image/upload/v1704313420/Nextpreview_564bd5e6fd.png">
-            Download
+          <Button px={12} py={12}
+            style={button}
+            href="https://yazn-108.github.io/">
+            Visit my site
           </Button>
         </Section>
-        <Text style={paragraph}>
-          Best,
-          <br />
-          The Sleem Tech team
-        </Text>
         <Hr style={hr} />
-        <Text style={footer}>Subscribe to Ali Sleem</Text>
+        <Text style={footer}>Subscribe to yazn_108</Text>
       </Container>
     </Body>
   </Html>
@@ -61,10 +50,11 @@ const main = {
 };
 const container = {
   margin: '0 auto',
-  padding: '20px 0 48px',
+  padding: '20px 10px 48px',
 };
 const logo = {
   margin: '0 auto',
+  borderRadius: "8px"
 };
 const paragraph = {
   fontSize: '16px',
@@ -74,13 +64,16 @@ const btnContainer = {
   textAlign: 'center',
 };
 const button = {
-  backgroundColor: '#5F51E8',
+  backgroundColor: '#57d6ff',
   borderRadius: '3px',
   color: '#fff',
   fontSize: '16px',
   textDecoration: 'none',
   textAlign: 'center',
   display: 'block',
+  padding: 10,
+  width: "80%",
+  margin: '20px auto',
 };
 const hr = {
   borderColor: '#cccccc',

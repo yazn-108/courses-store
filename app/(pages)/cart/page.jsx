@@ -99,7 +99,7 @@ const Page = () => {
 								</div>
 							</div>
 						</div>
-						<h2 className='text-gray-400 text-[12px]'>Note: All Items will be sent via Email</h2>
+						<h2 className='text-gray-400 text-[12px] mt-5 text-center'>Note: All Items will be sent via Email</h2>
 					</div>
 				</div>
 			</div>

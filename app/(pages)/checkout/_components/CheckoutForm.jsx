@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { PaymentElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import { DeleteAllCartItems } from '@/app/_fetchData/CartApis';
 import { useUser } from '@clerk/nextjs';
+import axios from 'axios';
 const CheckoutForm = ({ amount }) => {
 	const stripe = useStripe();
 	const elements = useElements();
@@ -24,7 +25,7 @@ const CheckoutForm = ({ amount }) => {
 			handleError(submitError);
 			return;
 		}
-		const res = await fetch('api/create-intent', {
+		const res = await fetch(`${process.env.NEXT_PUBLIC_REST_API_URL}/api/create-intent`, {
 			method: 'POST',
 			body: JSON.stringify({
 				amount: amount
@@ -47,8 +48,9 @@ const CheckoutForm = ({ amount }) => {
 		}
 	};
 	const sendEmail = async () => {
-		const res = await fetch('api/send-email', {
-			method: 'POST',
+		await axios.post(`${process.env.NEXT_PUBLIC_REST_API_URL}/api/send-email`, {
+			userName: user?.fullName,
+			userEmail: user?.primaryEmailAddress?.emailAddress
 		})
 	}
 	return (
