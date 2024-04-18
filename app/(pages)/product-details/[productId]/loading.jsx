@@ -3,8 +3,8 @@ const loading = () => {
   return (
     <div className=' py-8 md:px-28'>
       <div className='mt-10 grid grid-cols-1 md:grid-cols-2 gap-5'>
-        <div className='w-[100%] h-[250px] m-auto mt-0 bg-slate-200 rounded-lg animate-pulse'></div>
-        <div className='w-[100%] flex flex-col gap-5 m-auto'>
+        <div className='w-[90%] h-[250px] m-auto mt-0 bg-slate-200 rounded-lg animate-pulse'></div>
+        <div className='w-[90%] flex flex-col gap-5 m-auto'>
           <div className='h-[20px] w-[100%] bg-slate-200 animate-pulse'>
           </div>
           <div className='h-[20px] w-[70px] bg-slate-200 animate-pulse'>

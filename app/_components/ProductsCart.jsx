@@ -5,7 +5,9 @@ const ProductsCart = ({ products, openState }) => {
   return (
     <div className='h-[300px] w-[250px]
         bg-gray-100 z-10 rounded-md border shadow-sm
-        absolute mx-10 right-10 top-12 p-5 overflow-hidden mt-5'>
+        absolute top-[68px] p-5 overflow-hidden 
+        left-[50%] translate-x-[-50%]
+        sm:right-10 sm:left-auto sm:translate-x-0 sm:mx-10'>
       <div className="mt-1 space-y-6 h-[156px] overflow-y-scroll">
         <ul className="space-y-4">
           {products?.map((item) => (

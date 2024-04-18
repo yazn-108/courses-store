@@ -38,7 +38,7 @@ const CheckoutForm = ({ amount }) => {
 			clientSecret,
 			elements,
 			confirmParams: {
-				return_url: `${NEXT_PUBLIC_REST_API_URL}/payment-confirm`,
+				return_url: `${process.env.NEXT_PUBLIC_REST_API_URL}/payment-confirm`,
 			},
 		});
 		if (result.error) {
@@ -53,7 +53,7 @@ const CheckoutForm = ({ amount }) => {
 	}
 	return (
 		<form onSubmit={handleSubmit}>
-			<div className='mx-32 md:mx-[320px] mt-12'>
+			<div className='max-w-[90vw] md:mx-[320px] m-auto mt-12'>
 				<PaymentElement />
 				<button className='w-full p-2 mt-4 text-white rounded-md bg-primary'>Submit</button>
 			</div>

@@ -29,3 +29,10 @@ body {
 .notFound a {
   color: red;
 }
+@media (max-width: 640px) {
+  .cl-userButtonPopoverCard {
+    left: 50% !important;
+    top: 68px !important;
+    transform: translateX(-50%) !important;
+  }
+}
