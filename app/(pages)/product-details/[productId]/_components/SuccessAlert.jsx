@@ -2,7 +2,7 @@ import React from 'react'
 const SuccessAlert = ({ message, state }) => {
     if (state) {
         return (
-            <div className='z-1 fixed top-[80px] left-[50%] translate-x-[-50%] w-fit drop-shadow-lg'>
+            <div className='z-1 fixed top-[80px] left-[50%] translate-x-[-50%] w-fit min-w-[90%] sm:min-w-fit drop-shadow-lg'>
                 <div role="alert" className="rounded-xl border border-gray-100 bg-white p-4">
                     <div className="flex items-start gap-4">
                         <span className="text-green-600">
@@ -30,7 +30,7 @@ const SuccessAlert = ({ message, state }) => {
         )
     } else {
         return (
-            <div className='z-1 fixed top-[80px] left-[50%] translate-x-[-50%] w-fit drop-shadow-lg'>
+            <div className='z-1 fixed top-[80px] left-[50%] translate-x-[-50%] w-fit min-w-[90%] sm:min-w-fit drop-shadow-lg'>
                 <div role="alert" className="rounded-xl border border-gray-100 bg-white p-4">
                     <div className="flex items-start gap-4">
                         <span className="text-[#87adbd]">
