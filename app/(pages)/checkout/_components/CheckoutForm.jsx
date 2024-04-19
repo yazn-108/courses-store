@@ -18,7 +18,6 @@ const CheckoutForm = ({ amount }) => {
 			setErrorMessage(submitError.message)
 			return;
 		}
-		sendEmail();
 		setLading(true)
 		const res = await fetch(`${process.env.NEXT_PUBLIC_REST_API_URL}/api/create-intent`, {
 			method: 'POST',
@@ -30,6 +29,7 @@ const CheckoutForm = ({ amount }) => {
 		if (clientSecret) {
 			DeleteAllCartItems(user?.id)
 		}
+		sendEmail();
 		const result = await stripe.confirmPayment({
 			clientSecret,
 			elements,
@@ -52,8 +52,9 @@ const CheckoutForm = ({ amount }) => {
 		<form onSubmit={handleSubmit} className='relative'>
 			{
 				loading && (
-					<div className='flex justify-center items-center h-full w-full bg-white absolute z-10'>
+					<div className='flex flex-col justify-center items-center h-full w-full bg-white absolute z-10'>
 						<div className='text-primary text-lg'>Payment is being completed...</div>
+						<div className='text-sm'>do not refresh page</div>
 					</div>
 				)
 			}
