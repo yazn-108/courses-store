@@ -15,6 +15,14 @@ module.exports = {
       colors: { primary: "rgb(45, 212, 191)" }
       // colors: { primary: "#08D9D6" }
     },
+    screens: {
+      'sm': '640px',
+      'md': '768px',
+      'test': '922px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
+    }
   },
   plugins: [],
 };

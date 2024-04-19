@@ -55,11 +55,21 @@ const CheckoutForm = ({ amount }) => {
 	}
 	return (
 		<form onSubmit={handleSubmit}>
-			<div className='max-w-[90vw] md:mx-[320px] m-auto mt-12'>
+			<div className='max-w-[90vw] test:max-w-[80vw] lg:max-w-[70vw] xl:max-w-[60vw] m-auto mt-12'>
+				<div className='mb-12 text-center'>
+					<span>To test the payment process, use this card number </span>
+					<br className='md:hidden' />
+					<span className="group/item relative">
+						<span className='cursor-pointer text-primary' onClick={(e) => navigator.clipboard.writeText(e.target.innerHTML)}>4242 4242 4242 4242</span>
+						<span className="absolute bottom-[-20px] md:bottom-auto md:top-[-20px] left-0 text-center w-full min-w-[140px] text-xs invisible group-hover/item:visible">
+							Copy to clipboard
+						</span>
+					</span>
+				</div>
 				<PaymentElement />
 				<button className='w-full p-2 mt-4 text-white rounded-md bg-primary'>Submit</button>
 			</div>
-		</form>
+		</form >
 	)
 }
 export default CheckoutForm

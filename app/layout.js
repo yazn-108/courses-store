@@ -17,6 +17,7 @@ export default function RootLayout({ children }) {
         <html lang="en">
           <head>
             <title>Courses store</title>
+            <link rel="icon" href="/favicon.svg" type="image/svg" sizes="any" />
           </head>
           <body className={MainFont.className}>
             <Header />
