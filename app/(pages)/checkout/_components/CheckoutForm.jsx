@@ -7,24 +7,19 @@ import axios from 'axios';
 const CheckoutForm = ({ amount }) => {
 	const stripe = useStripe();
 	const elements = useElements();
-	const [loading, setLoading] = useState(false);
-	const [errormessage, setErrorMessage] = useState()
+	const [errormessage, setErrorMessage] = useState(false)
+	const [loading, setLading] = useState(false)
+	errormessage && setTimeout(() => setErrorMessage(false), 2000)
 	const { user } = useUser()
 	const handleSubmit = async (event) => {
 		event.preventDefault();
-		if (!stripe || !elements) {
-			return;
-		}
-		const handleError = (error) => {
-			setLoading(false)
-			setErrorMessage(error.message)
-		}
-		sendEmail();
 		const { error: submitError } = await elements.submit();
 		if (submitError) {
-			handleError(submitError);
+			setErrorMessage(submitError.message)
 			return;
 		}
+		sendEmail();
+		setLading(true)
 		const res = await fetch(`${process.env.NEXT_PUBLIC_REST_API_URL}/api/create-intent`, {
 			method: 'POST',
 			body: JSON.stringify({
@@ -54,7 +49,30 @@ const CheckoutForm = ({ amount }) => {
 		})
 	}
 	return (
-		<form onSubmit={handleSubmit}>
+		<form onSubmit={handleSubmit} className='relative'>
+			{
+				loading && (
+					<div className='flex justify-center items-center h-full w-full bg-white absolute z-10'>
+						<div className='text-primary text-lg'>Payment is being completed...</div>
+					</div>
+				)
+			}
+			{errormessage && (
+				<div className='z-10 fixed top-[80px] left-[50%] translate-x-[-50%] w-fit min-w-[90%] sm:min-w-fit drop-shadow-lg'>
+					<div role="alert" className="rounded-xl border border-gray-100 bg-white p-4">
+						<div className="flex items-start gap-4">
+							<span className="text-[#df1b41]">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+									<path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+								</svg>
+							</span>
+							<div className="flex-1">
+								<strong className="block font-medium text-[#df1b41]"> {errormessage} </strong>
+							</div>
+						</div>
+					</div>
+				</div>
+			)}
 			<div className='max-w-[90vw] test:max-w-[80vw] lg:max-w-[70vw] xl:max-w-[60vw] m-auto mt-12'>
 				<div className='mb-12 text-center'>
 					<span>To test the payment process, use this card number </span>
