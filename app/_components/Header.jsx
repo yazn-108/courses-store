@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect, useRef, useState } from 'react'
-import { UserButton, useUser } from '@clerk/nextjs'
+import { SignedOut, SignedIn, UserButton, useUser } from '@clerk/nextjs'
 import { ShoppingCart } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -58,7 +58,7 @@ const Header = () => {
           </nav>
           <div className="flex items-center gap-4">
             <div className="sm:flex sm:gap-4">
-              {!user ? (
+              <SignedOut>
                 <>
                   <Link
                     className="block rounded-md bg-teal-500 hover:bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition "
@@ -73,7 +73,8 @@ const Header = () => {
                     Register
                   </Link>
                 </>
-              ) : (
+              </SignedOut>
+              <SignedIn>
                 <div className='flex items-center gap-5'>
                   <div className='cursor-pointer flex gap-1' ref={CartMenu} onClick={() => setCartMenuState(!CartMenuState)} >
                     <ShoppingCart />
@@ -81,11 +82,10 @@ const Header = () => {
                     <span className='text-sm'>({CartProducts.length})</span>
                   </div>
                   <div className='w-[32px] h-[32px] rounded-full'>
-                    {user ? <UserButton afterSignOutUrl='/' /> : <div className='w-[32px] h-[32px] bg-slate-300 rounded-full animate-pulse'></div>}
+                    <UserButton afterSignOutUrl='/' />
                   </div>
                 </div>
-              )
-              }
+              </SignedIn>
             </div>
             <div className="relative" ref={Menu}>
               <button
